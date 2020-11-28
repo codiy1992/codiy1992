@@ -1,0 +1,27 @@
+# zsh settings
+prompt_context() { 
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER" 
+  fi 
+} 
+
+# alias
+alias ll='ls -al'
+
+# homebrew
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# docker
+alias docker.rm.all='docker rm $(docker ps -a -q)'
+alias docker.stop.all='docker stop $(docker ps -a -q)'
+alias docker.rmi.dangling='docker rmi $(docker images -q -f dangling=true)'
+alias docker.rmi.all='docker rmi -f $(docker images -aq)'
+alias docker.system.prune='docker system prune'
+alias docker.volume.prune='docker volume prune'
+alias docker.exec='docker exec -it'
+
+# alias 
+alias @='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
+
+# run commands
+cd ~
