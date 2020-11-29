@@ -18,7 +18,7 @@ prompt_context() {
 alias ll='ls -al'
 alias codiy='_func() { read -s -p "Enter Vault Password: " VAULT_PASSWORD; echo $VAULT_PASSWORD > ~/.vault_password; vim ~/Assets/; rm -fr ~/.vault_password; echo "\n"; cd ~/Assets; git status; }; _func;'
 alias repo='_func() {cd ~/Repos/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
-alias rc.osx='vim ~/.zshrc.osx; source ~/.zshrc.osx'
+alias rc='vim ~/.zshrc.osx; source ~/.zshrc.osx'
 alias deploy='ssh -t deploy "cd /devops; make bash"'
 alias ops='cd ~/Works/wn-devops && make bash'
 alias ~='_func() { cd ~/Works/wn-devops/work/"$1"; }; _func'

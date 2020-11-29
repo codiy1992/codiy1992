@@ -50,7 +50,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-* python & node
+* python & node & ansible
 
 ```shell
     // 安装 python2.7
@@ -59,4 +59,14 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
     // 安装 python3
     brew install python
     brew install yarn
+    brew install ansible
+```
+
+* 安装gopass > [Ubuntu需自行下载amd64包进行安装](https://github.com/gopasspw/gopass/releases)
+
+```shell
+apt-get install gnupg git rng-tools
+wget [the URL of the latest .deb release]
+sudo dpkg -i gopass-<version>-linux-amd64.deb
+gopass clone git@github.com:codiy1992/secrets.git
 ```

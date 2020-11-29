@@ -190,3 +190,17 @@ scoop install 7zip
 // 下载器
 scoop install motrix
 ```
+
+## 8. 安装 gopass > [参考文档](https://github.com/gopasspw/gopass)
+
+* 安装
+
+```shell
+scoop install gpg4win
+scoop install gopass
+```
+
+* 导入 gpg 私钥
+* 导入私密文档库 `gopass clone git@github.com:codiy1992/secrets.git`
+* 下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
+* 配合 chrome 插件使用 `gopass-jsonapi configure`
