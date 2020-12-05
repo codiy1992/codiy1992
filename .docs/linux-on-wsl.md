@@ -71,6 +71,7 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
     brew install python
     brew install yarn
     brew install ansible
+    brew install frpc
 ```
 
 * 安装gnupg,gopass(在linux子系统中可不装, 子系统内使用windows的gopass.exe) > [Ubuntu需自行下载amd64包进行安装](https://github.com/gopasspw/gopass/releases)

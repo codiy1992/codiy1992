@@ -188,6 +188,7 @@ scoop install gopass
 * 下载杀毒软件电脑管家 > [官网地址](https://guanjia.qq.com/)
 * 下载RDM(从 Miscrosoft Store 下载)
 * 下载navicat(在Onedrive)
+* 开发工具: `scoop install postman`
 * 聊天软件: wechat, wxwork, dingtalk, qq, `scoop install slack`, `scoop install telegram`
 * 音乐客户端：网易云音乐
 
