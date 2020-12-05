@@ -51,10 +51,6 @@ date: 2020-11-18 15:20:27
 
 ## 3. win10 基础设置
 
-### 3.0 [option] 更改登录显示用户名
-
-`此电脑 > 管理 > 本地用户和组 > 用户`
-
 ### 3.1 设置允许 Ipsec 协议 VPN 连接
 
 * 打开注册表编辑器
@@ -68,19 +64,24 @@ date: 2020-11-18 15:20:27
 * 4.x 版本并未全部与 3.x 版本兼容, 因此最好将 3.5 版本也一起安装
 * 3.5 版本安装方法参考 > [微软官方文档](https://docs.microsoft.com/zh-cn/dotnet/framework/install/dotnet-35-windows-10)
 
-### 3.3 安装 chrome 浏览器
+### 3.3 安装 PowerToys 设置键盘映射(建议从 github 下载安装)
 
-### 3.4 安装 PowerToys 设置键盘映射(建议从 github 下载安装)
+### 3.4 安装 scoop (可选安装choco, winget)
 
-### 3.5 安装 scoop (可选安装choco, winget)
-
-* scoop 没连 VPN 几乎用不了, 需先连接 VPN
+* scoop 需开启代理，否则几乎用不了
 * 管理员身份运行 PowerShell
 
     ```shell
     Set-ExecutionPolicy RemoteSigned -scope CurrentUser
     iwr -useb get.scoop.sh | iex
     scoop install git
+    ```
+
+### 3.5 安装 chrome 浏览器
+
+    ```shell
+    scoop bucket add extras
+    scoop install googlechrome
     ```
 
 ### 3.6 安装 Cascadia Code PL 字体
@@ -121,7 +122,7 @@ date: 2020-11-18 15:20:27
 
     ```shell
     // 管理员身份运行 PowerShell
-    wsl --set-version Ubuntu
+    wsl --set-version Ubuntu 2
     ```
 
 ### 3.8 安装vscode
@@ -155,43 +156,19 @@ scoop install vscode
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "Solarized Dark",
             "acrylicOpacity": 0.7,
-            "useAcrylic": true
+            "useAcrylic": true,
+            "fontSize": 14,
+            "fontFace": "Cascadia Code PL"
         }
-    // list
-        {
-            // Make changes here to the powershell.exe profile.
-            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-            "name": "Windows PowerShell",
-            "commandline": "powershell.exe",
-            "fontFace": "Cascadia Code PL", // 添加字体设定
-            "hidden": false
-        },
     ```
 
 ## 4. Ubuntu 子系统配置 > [参见 linux 环境搭建](./linux.md)
 
 ## 5. 安装 Docker Desktop for Windows
 
-* 在开启 wsl2 之后在安装 docker-desktop, 否则需要开启 hyper-v
-* wsl2 性能更好些
+* 在开启 wsl2 之后在安装 docker-desktop
 
-## 6. 开启 hyper-v 功能
-
-```shell
-// 管理员身份执行
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
-
-## 7. 安装其他软件(windows, Ubuntu)
-
-```shell
-// 压缩解压软件
-scoop install 7zip
-// 下载器
-scoop install motrix
-```
-
-## 8. 安装 gopass > [参考文档](https://github.com/gopasspw/gopass)
+## 6. 安装 gopass > [参考文档](https://github.com/gopasspw/gopass)
 
 * 安装
 
@@ -201,6 +178,23 @@ scoop install gopass
 ```
 
 * 导入 gpg 私钥
-* 导入私密文档库 `gopass clone git@github.com:codiy1992/secrets.git`
+* 导入私密文档库(需先git clone 把服务器指纹写入know_hosts, gopass无法自动处理) `gopass clone git@github.com:codiy1992/secrets.git`
 * 下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
-* 配合 chrome 插件使用 `gopass-jsonapi configure`
+* 配合 chrome 插件使用(在gopass安装目录处执行) `./gopass-jsonapi configure`
+
+## 7. 安装其他软件(windows, Ubuntu)
+
+* 下载解压缩软件 > [7-zip](https://www.7-zip.org/)
+* 下载杀毒软件电脑管家 > [官网地址](https://guanjia.qq.com/)
+* 下载RDM(从 Miscrosoft Store 下载)
+* 下载navicat(在Onedrive)
+* 聊天软件: wechat, wxwork, dingtalk, qq, `scoop install slack`, `scoop install telegram`
+* 音乐客户端：网易云音乐
+
+
+## 8. 开启 hyper-v 功能
+
+```shell
+// 管理员身份执行
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
