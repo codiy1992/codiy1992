@@ -179,7 +179,7 @@ scoop install gopass
 
 * 导入 gpg 私钥
 * 导入私密文档库(需先git clone 把服务器指纹写入know_hosts, gopass无法自动处理) `gopass clone git@github.com:codiy1992/secrets.git`
-* 下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
+* [可选]下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
 * 配合 chrome 插件使用(在gopass安装目录处执行) `./gopass-jsonapi configure`
 
 ## 7. 安装其他软件(windows, Ubuntu)
