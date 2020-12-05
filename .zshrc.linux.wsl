@@ -23,9 +23,8 @@ alias docker.volume.prune='docker volume prune'
 alias docker.exec='docker exec -it'
 
 # alias 
-# --remote wsl+Ubuntu
-alias open='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
-alias @='_func() { code --remote wsl+Ubuntu; }; _func'
+# alias @='_func() { code --remote wsl+Ubuntu; }; _func'
+alias @='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
 
 # run commands
 cd ~

@@ -162,7 +162,7 @@ scoop install vscode
         }
     ```
 
-## 4. Ubuntu 子系统配置 > [参见 linux 环境搭建](./linux.md)
+## 4. Ubuntu 子系统配置 > [参见 linux 环境搭建](./linux-on-wsl.md)
 
 ## 5. 安装 Docker Desktop for Windows
 
