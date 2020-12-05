@@ -8,6 +8,8 @@ prompt_context() {
 # alias
 alias ll='ls -al'
 alias play='ansible-playbook'
+alias gs='gopass.exe'
+alias gopass='gopass.exe'
 alias rc='vim ~/.zshrc.linux.wsl; source ~/.zshrc.linux.wsl'
 
 # homebrew
