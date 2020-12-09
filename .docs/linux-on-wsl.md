@@ -22,10 +22,10 @@ chsh -s $(which zsh)
 * 导入 id_rsa 密钥对
 * 拉取本仓库代码
 ```
-cd ~
-git init
-git remote add origin git@github.com:codiy1992/setup.git
-git pull origin master
+mkdir ~/Repos
+git clone git@github.com:codiy1992/setup.git
+cd ~/Repos/setup
+bash setup.sh
 ```
 
 * 设置vim

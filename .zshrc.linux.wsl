@@ -9,7 +9,6 @@ prompt_context() {
 alias ll='ls -al'
 alias play='ansible-playbook'
 alias gs='gopass.exe'
-alias gopass='gopass.exe'
 alias rc='vim ~/.zshrc.linux.wsl; source ~/.zshrc.linux.wsl'
 alias pw='tr -dc A-Za-z0-9 </dev/urandom | head -c 16 ; echo '
 alias pw2='tr -dc '\''A-Za-z0-9!"#$%&'\'''\\''\'''\''()*+,-./:;<=>?@[\]^_`{|}~'\'' </dev/urandom | head -c 13  ; echo'
