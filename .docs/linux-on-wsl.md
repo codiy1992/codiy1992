@@ -19,6 +19,23 @@ chsh -s $(which zsh)
 ```
 
 * 建立新的会话
+* 导入 id_rsa 密钥对
+* 拉取本仓库代码
+```
+mkdir ~/Repos
+git clone git@github.com:codiy1992/setup.git
+cd ~/Repos/setup
+bash setup.sh
+```
+
+* 设置vim
+
+    ```shell
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    // vim 执行下面命令
+    :PluginInstall
+    ```
+
 * 安装oh-my-zsh
 
 ```shell
@@ -34,15 +51,9 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
             autojump
     )
     # User configuration
-    source ~/.zshrc.linux
+    source ~/.zshrc.linux.wsl
     ```
 
-* 设置vim
-
-    ```shell
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    // 拷贝 .vimrc 至 ~
-    ```
 
 * 安装 homebrew
 
@@ -60,9 +71,10 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
     brew install python
     brew install yarn
     brew install ansible
+    brew install frpc
 ```
 
-* 安装gopass > [Ubuntu需自行下载amd64包进行安装](https://github.com/gopasspw/gopass/releases)
+* 安装gnupg,gopass(在linux子系统中可不装, 子系统内使用windows的gopass.exe) > [Ubuntu需自行下载amd64包进行安装](https://github.com/gopasspw/gopass/releases)
 
 ```shell
 apt-get install gnupg git rng-tools

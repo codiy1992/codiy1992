@@ -1,0 +1,13 @@
+{
+    "folders": [
+        {
+            "name": ".docs",
+            "path": "..\\.docs"
+        },
+        {
+            "name": "secrets",
+            "path": "C:\\Users\\codiy\\AppData\\Local\\gopass\\stores\\root"
+        }
+    ],
+    "settings": {}
+}

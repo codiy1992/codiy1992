@@ -22,13 +22,13 @@ date: 2020-11-18 15:20:27
 * [参考文档](https://docs.microsoft.com/zh-cn/windows-server/storage/disk-management/initialize-new-disks)
 * 装机时, 可按Shift + F10 打开cmd程序, 借由 diskpart 将 MBR 磁盘转换为 GPT 磁盘
 
-    ```shell
-        diskpart
-        list disk
-        select disk <disknumber>
-        clean // 运行 clean 命令将删除磁盘上的所有分区或卷。
-        convert gpt // 将 MBR 分区样式转换为具有 GUID 分区表 (GPT) 分区样式
-    ```
+```shell
+diskpart
+list disk
+select disk <disknumber>
+clean // 运行 clean 命令将删除磁盘上的所有分区或卷。
+convert gpt // 将 MBR 分区样式转换为具有 GUID 分区表 (GPT) 分区样式
+```
 
 ## 2. win10 系统的激活
 
@@ -43,17 +43,13 @@ date: 2020-11-18 15:20:27
 * 查阅待激活系统的 KMS key > [微软官方文档](https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys)
 * 运行激活命令(需以管理员身份)
 
-    ```shell
-    slmgr.vbs -ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
-    slmgr.vbs -skms kms.codiy.net
-    slmgr.vbs -ato
-    ```
+```shell
+slmgr.vbs -ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
+slmgr.vbs -skms kms.codiy.net
+slmgr.vbs -ato
+```
 
 ## 3. win10 基础设置
-
-### 3.0 [option] 更改登录显示用户名
-
-`此电脑 > 管理 > 本地用户和组 > 用户`
 
 ### 3.1 设置允许 Ipsec 协议 VPN 连接
 
@@ -68,30 +64,35 @@ date: 2020-11-18 15:20:27
 * 4.x 版本并未全部与 3.x 版本兼容, 因此最好将 3.5 版本也一起安装
 * 3.5 版本安装方法参考 > [微软官方文档](https://docs.microsoft.com/zh-cn/dotnet/framework/install/dotnet-35-windows-10)
 
-### 3.3 安装 chrome 浏览器
+### 3.3 安装 PowerToys 设置键盘映射(建议从 github 下载安装)
 
-### 3.4 安装 PowerToys 设置键盘映射(建议从 github 下载安装)
+### 3.4 安装 scoop (可选安装choco, winget)
 
-### 3.5 安装 scoop (可选安装choco, winget)
-
-* scoop 没连 VPN 几乎用不了, 需先连接 VPN
+* scoop 需开启代理，否则几乎用不了
 * 管理员身份运行 PowerShell
 
-    ```shell
-    Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-    iwr -useb get.scoop.sh | iex
-    scoop install git
-    ```
+```shell
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+iwr -useb get.scoop.sh | iex
+scoop install git
+```
+
+### 3.5 安装 chrome 浏览器
+
+```shell
+scoop bucket add extras
+scoop install googlechrome
+```
 
 ### 3.6 安装 Cascadia Code PL 字体
 
 * 方式1: 使用 scoop 安装
 
-    ```shell
-    scoop search Cascadia
-    scoop bucket add 'nerd-fonts'
-    scoop install Cascadia-Code
-    ```
+```shell
+scoop search Cascadia
+scoop bucket add 'nerd-fonts'
+scoop install Cascadia-Code
+```
 
 * 方式2: github 下载 ttf 文件安装 > [gitbub 项目地址](https://github.com/microsoft/cascadia-code/releases)
 
@@ -99,19 +100,19 @@ date: 2020-11-18 15:20:27
 
 * 开启wsl并启用"虚拟机平台"功能
 
-    ```shell
-    // 管理员身份运行 PowerShell
-    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-    ```
+```shell
+// 管理员身份运行 PowerShell
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
 
 * 重启 windows 系统后 下载并安装内核更新包 > [下载地址](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 * 将 wsl2 设置为默认版本
 
-    ```shell
-    // 管理员身份运行 PowerShell
-    wsl --set-default-version 2
-    ```
+```shell
+// 管理员身份运行 PowerShell
+wsl --set-default-version 2
+```
 
 * 从 Miscrosoft Store 安装 Linux 分发版
 
@@ -119,10 +120,10 @@ date: 2020-11-18 15:20:27
 
 * 为 wsl 设置默认分发版
 
-    ```shell
-    // 管理员身份运行 PowerShell
-    wsl --set-version Ubuntu
-    ```
+```shell
+// 管理员身份运行 PowerShell
+wsl --set-version Ubuntu 2
+```
 
 ### 3.8 安装vscode
 
@@ -135,63 +136,39 @@ scoop install vscode
 
 * PowerShell 终端的设置, 启用 oh-my-posh 并设置 Powerline > [官方文档](https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/powerline-setup)
 
-    ```shell
-    // 管理员身份运行 Windows Terminal
-    Install-Module posh-git -Scope CurrentUser
-    Install-Module oh-my-posh -Scope CurrentUser
-    ```
+```shell
+// 管理员身份运行 Windows Terminal
+Install-Module posh-git -Scope CurrentUser
+Install-Module oh-my-posh -Scope CurrentUser
+```
 
-    ```text
-    // 在 notepad $PROFILE 打开的文本中粘贴以下文本
-    Import-Module posh-git
-    Import-Module oh-my-posh
-    Set-Theme Paradox
-    ```
+```text
+// 在 notepad $PROFILE 打开的文本中粘贴以下文本
+Import-Module posh-git
+Import-Module oh-my-posh
+Set-Theme Paradox
+```
 
-    ```json
-    // 编辑 Windows Terminal 的 settings.json 文件
-    // "defaults":
-        {
-            // Put settings here that you want to apply to all profiles.
-            "colorScheme": "Solarized Dark",
-            "acrylicOpacity": 0.7,
-            "useAcrylic": true
-        }
-    // list
-        {
-            // Make changes here to the powershell.exe profile.
-            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-            "name": "Windows PowerShell",
-            "commandline": "powershell.exe",
-            "fontFace": "Cascadia Code PL", // 添加字体设定
-            "hidden": false
-        },
-    ```
+```json
+// 编辑 Windows Terminal 的 settings.json 文件
+// "defaults":
+    {
+        // Put settings here that you want to apply to all profiles.
+        "colorScheme": "Solarized Dark",
+        "acrylicOpacity": 0.7,
+        "useAcrylic": true,
+        "fontSize": 14,
+        "fontFace": "Cascadia Code PL"
+    }
+```
 
-## 4. Ubuntu 子系统配置 > [参见 linux 环境搭建](./linux.md)
+## 4. Ubuntu 子系统配置 > [参见 linux 环境搭建](./linux-on-wsl.md)
 
 ## 5. 安装 Docker Desktop for Windows
 
-* 在开启 wsl2 之后在安装 docker-desktop, 否则需要开启 hyper-v
-* wsl2 性能更好些
+* 在开启 wsl2 之后在安装 docker-desktop
 
-## 6. 开启 hyper-v 功能
-
-```shell
-// 管理员身份执行
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
-
-## 7. 安装其他软件(windows, Ubuntu)
-
-```shell
-// 压缩解压软件
-scoop install 7zip
-// 下载器
-scoop install motrix
-```
-
-## 8. 安装 gopass > [参考文档](https://github.com/gopasspw/gopass)
+## 6. 安装 gopass > [参考文档](https://github.com/gopasspw/gopass)
 
 * 安装
 
@@ -201,6 +178,71 @@ scoop install gopass
 ```
 
 * 导入 gpg 私钥
-* 导入私密文档库 `gopass clone git@github.com:codiy1992/secrets.git`
-* 下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
-* 配合 chrome 插件使用 `gopass-jsonapi configure`
+* 导入私密文档库(需先git clone 把服务器指纹写入know_hosts, gopass无法自动处理) `gopass clone git@github.com:codiy1992/secrets.git`
+* [可选]下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
+* 配合 chrome 插件使用(在gopass安装目录处执行) `./gopass-jsonapi configure`
+
+## 7. 安装其他软件(windows, Ubuntu)
+
+* 下载解压缩软件 > [7-zip](https://www.7-zip.org/)
+* 下载杀毒软件电脑管家 > [官网地址](https://guanjia.qq.com/)
+* 下载RDM(从 Miscrosoft Store 下载)
+* 下载navicat(在Onedrive)
+* 开发工具: `scoop install postman`
+* 聊天软件: wechat, wxwork, dingtalk, qq, `scoop install slack`, `scoop install telegram`
+* 音乐客户端：网易云音乐
+
+
+## 8. 开启 hyper-v 功能
+
+```shell
+// 管理员身份执行
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+## 9. Office2019 专业增强版的安装与激活
+
+* 下载 Office 部署工具(setup.exe) > [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
+* 创建并导出 Office 部署配置文件或使用下面的配置(仅安装 Word, Excel, PowerPoint) > [Office 自定义工具](https://config.office.com/deploymentsettings)
+
+```xml
+<Configuration ID="21f6a4d7-1d22-431d-b31c-024723327677">
+  <Add OfficeClientEdition="64" Channel="PerpetualVL2019">
+    <Product ID="ProPlus2019Volume" PIDKEY="NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP">
+      <Language ID="MatchOS" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <ExcludeApp ID="Outlook" />
+      <ExcludeApp ID="Publisher" />
+    </Product>
+  </Add>
+  <Property Name="SharedComputerLicensing" Value="0" />
+  <Property Name="PinIconsToTaskbar" Value="FALSE" />
+  <Property Name="SCLCacheOverride" Value="0" />
+  <Property Name="AUTOACTIVATE" Value="0" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
+  <Property Name="DeviceBasedLicensing" Value="0" />
+  <Updates Enabled="FALSE" />
+  <RemoveMSI />
+  <Logging Level="Off" />
+</Configuration>
+```
+
+* 安装 Office2019
+
+```shell
+// powershell执行
+setup.exe /configure xxxxx.xml
+```
+
+* 激活 Office2019 > [产品 GVLK 对照表](https://github.com/Wind4/vlmcsd/tree/gh-pages)
+
+```shell
+cd 'C:\Program Files\Microsoft Office\Office16'
+cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript ospp.vbs /sethst:kms.codiy.net
+cscript ospp.vbs /act
+```
