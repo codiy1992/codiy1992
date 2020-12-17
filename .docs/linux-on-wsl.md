@@ -3,9 +3,7 @@ title: linux 开发环境配置指引(WSL)
 date: 2020-11-20 15:15:27
 ---
 
-## 更换软件包镜像源为国内镜像源
-
-* 更换为阿里云镜像源 > [参考文档](https://developer.aliyun.com/mirror/)
+## 更新软件包, 安装基础软件
 
 ```shell
 sudo apt-get update
@@ -77,8 +75,29 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 * 安装gnupg,gopass(在linux子系统中可不装, 子系统内使用windows的gopass.exe) > [Ubuntu需自行下载amd64包进行安装](https://github.com/gopasspw/gopass/releases)
 
 ```shell
-apt-get install gnupg git rng-tools
+apt-get install gnupg2 git rng-tools
 wget [the URL of the latest .deb release]
 sudo dpkg -i gopass-<version>-linux-amd64.deb
 gopass clone git@github.com:codiy1992/secrets.git
+```
+
+## 安装 GUI 应用程序
+
+* 导出 `$DISPLAY` 变量供 GUI 程序找到显示位置
+
+```shell
+// 三选一, 将 DISPLAY 定位到 windows 系统中的 xlaunch 服务
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+export DISPLAY="`sed -n 's/nameserver //p' /etc/resolv.conf`:0"
+export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
+
+```
+
+* 安装 google-chrome
+
+```shell
+sudo apt install gdebi-core wget
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi google-chrome-stable_current_amd64.deb
+google-chrome
 ```

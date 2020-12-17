@@ -30,5 +30,12 @@ alias docker.exec='docker exec -it'
 # alias @='_func() { code --remote wsl+Ubuntu; }; _func'
 alias @='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
 
+# proxy
+export http_proxy="http://127.0.0.1:7890"
+export https_proxy="http://127.0.0.1:7890"
+
+# for VcXsrv
+export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
+
 # run commands
-cd ~
+cd ~/Repos
