@@ -16,6 +16,28 @@ sudo apt-get install zsh
 chsh -s $(which zsh)
 ```
 
+## 安装中文语言包
+
+```shell
+sudo apt-get install language-pack-zh-hans
+```
+
+## Ubuntu 字体
+
+* 系统字体位置 `/usr/share/fonts`
+* 用户字体安装位置 `~/.local/share/fonts`
+* 安装字体后用命令 `fc-cache -f -v` 刷新字体库缓存
+* 安装 cascadia-code 字体 [Releases](https://github.com/microsoft/cascadia-code/releases)
+
+```shell
+wget https://github.com/microsoft/cascadia-code/releases/download/v2009.22/CascadiaCode-2009.22.zip
+unzip CascadiaCode-2009.22.zip
+mv ./tff ~/.local/share/fonts/cascadia-code
+fc-cache -f -v
+```
+
+##
+
 * 建立新的会话
 * 导入 id_rsa 密钥对
 * 拉取本仓库代码
@@ -139,3 +161,16 @@ cd idea-IU-203.5981.155/bin/
 
 // 破解参考 > https://tech.souyunku.com/?p=18946
 ```
+
+
+## [Options] 在 wsl2 中启用 snap [参考文档](https://discourse.ubuntu.com/t/using-snapd-in-wsl2/12113)
+
+```shell
+// 安装
+sudo apt-get update && sudo apt-get install -yqq daemonize dbus-user-session fontconfig
+// 创建一个容器让 systemd 的 pid 为 1
+sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
+// 登陆到容器, 然后在容器内操作 snap
+exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME
+```
+* snap 依赖 systemd 而 ubuntu on wsl2 使用 init 而不是 systemd, 因此 snap 无法在 wsl2 中正常工作
