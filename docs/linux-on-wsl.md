@@ -81,6 +81,32 @@ sudo dpkg -i gopass-<version>-linux-amd64.deb
 gopass clone git@github.com:codiy1992/secrets.git
 ```
 
+## Java 开发环境
+
+* 安装 sdkman > [官方文档](https://sdkman.io/install)
+
+```shell
+curl -s "https://get.sdkman.io" | bash
+```
+
+* 安装 AdoptOpenJDK (方式一)
+
+```shell
+sdk list java
+sdk install java 11.0.9.hs-adpt
+```
+
+* 安装 AdoptOpenJDK (方式二) > [官方文档](https://adoptopenjdk.net/installation.html#linux-pkg)
+
+```shell
+CODE_NAME=$(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d = -f 2)
+sudo apt-get install wget apt-transport-https gnupg
+echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb ${CODE_NAME} main" | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
+sudo apt-get update
+sudo apt-cache search adoptopenjdk
+sudo apt-get install adoptopenjdk-11-hotspot
+```
+
 ## 安装 GUI 应用程序
 
 * 导出 `$DISPLAY` 变量供 GUI 程序找到显示位置
@@ -100,4 +126,16 @@ sudo apt install gdebi-core wget
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi google-chrome-stable_current_amd64.deb
 google-chrome
+```
+
+* 安装 IDEA > [官方地址](https://www.jetbrains.com/idea/download/#section=linux)
+
+```
+cd ~/Applications
+wget https://download-cf.jetbrains.com/idea/ideaIU-2020.3.tar.gz
+tar zxf ideaIU-2020.3.tar.gz
+cd idea-IU-203.5981.155/bin/
+./idea.sh
+
+// 破解参考 > https://tech.souyunku.com/?p=18946
 ```
