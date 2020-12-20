@@ -249,8 +249,10 @@ cscript ospp.vbs /sethst:kms.codiy.net
 cscript ospp.vbs /act
 ```
 
-### 10. 安装 vcxsrv 让 wsl ubuntu 系统内的应用窗口显示在 windows 中
+## 10. 安装 vcxsrv 让 wsl ubuntu 系统内的应用窗口显示在 windows 中
 
 * 安装 `scoop install vcxsrv`
 * 设置 > 在 `控制面板\系统和安全\Windows Defender 防火墙\允许的应用` 勾选 所有 vcxsrv.exe 应用并允许其使用"专用"或"公用"网络
 * 运行 xlaunch.exe 开启 xlaunch 服务进程以接收来自 ubuntu 子系统的应用显示
+* 配置 xluanch 快捷方式 `C:\Users\codiy\scoop\apps\vcxsrv\current\xlaunch.exe -ArgumentList -run C:\Users\codiy\scoop\apps\vcxsrv\current\config.xlaunch`
+* 配置开机启动, 将快捷方式复制一份到 `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup`

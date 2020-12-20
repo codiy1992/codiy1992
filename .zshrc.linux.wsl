@@ -45,5 +45,15 @@ export https_proxy="http://127.0.0.1:7890"
 # for VcXsrv
 export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
 
+# for fcitx
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+FCITX_PROCESS_COUNT=`ps -ef | grep fcitx | grep -v "grep" | wc -l`
+if [ ${FCITX_PROCESS_COUNT} -lt 1 ]; then
+  fcitx-autostart &>/dev/null
+fi
+
 # run commands
 cd ~/Repos
