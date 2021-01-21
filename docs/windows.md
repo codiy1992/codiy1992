@@ -182,7 +182,7 @@ scoop install gopass
 * [可选]下载 gopass gui客户端 > [版本列表](https://github.com/codecentric/gopass-ui/releases)
 * 配合 chrome 插件使用(在gopass安装目录处执行) `./gopass-jsonapi configure`
 
-## 7. 安装其他软件(windows, Ubuntu)
+## 7. 安装其他软件
 
 * 下载解压缩软件 > [7-zip](https://www.7-zip.org/)
 * 下载杀毒软件电脑管家 > [官网地址](https://guanjia.qq.com/)
@@ -191,6 +191,8 @@ scoop install gopass
 * 开发工具: `scoop install postman`
 * 聊天软件: wechat, wxwork, dingtalk, qq, `scoop install slack`, `scoop install telegram`
 * 音乐客户端：网易云音乐
+* 截屏贴图工具 [snipaste 官网](https://www.snipaste.com/)
+* 效率工具 utools
 
 
 ## 8. 开启 hyper-v 功能
@@ -246,3 +248,11 @@ cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
 cscript ospp.vbs /sethst:kms.codiy.net
 cscript ospp.vbs /act
 ```
+
+## 10. 安装 vcxsrv 让 wsl ubuntu 系统内的应用窗口显示在 windows 中
+
+* 安装 `scoop install vcxsrv`
+* 设置 > 在 `控制面板\系统和安全\Windows Defender 防火墙\允许的应用` 勾选 所有 vcxsrv.exe 应用并允许其使用"专用"或"公用"网络
+* 运行 xlaunch.exe 开启 xlaunch 服务进程以接收来自 ubuntu 子系统的应用显示
+* 配置 xluanch 快捷方式 `C:\Users\codiy\scoop\apps\vcxsrv\current\xlaunch.exe -ArgumentList -run C:\Users\codiy\scoop\apps\vcxsrv\current\config.xlaunch`
+* 配置开机启动, 将快捷方式复制一份到 `%programdata%\Microsoft\Windows\Start Menu\Programs\Startup`

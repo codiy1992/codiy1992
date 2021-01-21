@@ -1,18 +1,23 @@
 # zsh settings
-prompt_context() { 
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER" 
-  fi 
-} 
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
 
 # alias
 alias ll='ls -al'
+alias pd='popd'
 alias play='ansible-playbook'
 alias gs='gopass.exe'
 alias rc='vim ~/.zshrc.linux.wsl; source ~/.zshrc.linux.wsl'
 alias pw='tr -dc A-Za-z0-9 </dev/urandom | head -c 16 ; echo '
 alias pw2='tr -dc '\''A-Za-z0-9!"#$%&'\'''\\''\'''\''()*+,-./:;<=>?@[\]^_`{|}~'\'' </dev/urandom | head -c 13  ; echo'
 alias repo='_func() {cd ~/Repos/mp-backend/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
+
+# apps
+alias idea='/home/codiy/Applications/idea/bin/idea.sh'
+alias chrome='google-chrome &'
 
 # homebrew
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -26,9 +31,29 @@ alias docker.system.prune='docker system prune'
 alias docker.volume.prune='docker volume prune'
 alias docker.exec='docker exec -it'
 
-# alias 
-# alias @='_func() { code --remote wsl+Ubuntu; }; _func'
-alias @='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
+# alias
+# alias vs='_func() { code --remote wsl+Ubuntu /home/codiy/Repos; }; _func'
+# alias @='_func() { code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\'\''"$1"'\''.code-workspace'\''; }; _func'
+alias vs='_func() { /mnt/c/Users/codiy/scoop/shims/code '\''\\wsl$\Ubuntu\home\codiy\.workspaces\windows.code-workspace'\''; }; _func'
+export DONT_PROMPT_WSL_INSTALL="yes"
+alias @='_func() { /usr/bin/code ~/.workspaces/"$1".code-workspace; }; _func'
+
+# proxy
+export http_proxy="http://127.0.0.1:7890"
+export https_proxy="http://127.0.0.1:7890"
+
+# for VcXsrv
+export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
+
+# for fcitx
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+FCITX_PROCESS_COUNT=`ps -ef | grep fcitx | grep -v "grep" | wc -l`
+if [ ${FCITX_PROCESS_COUNT} -lt 1 ]; then
+  fcitx-autostart &>/dev/null
+fi
 
 # run commands
-cd ~
+cd ~/Repos
