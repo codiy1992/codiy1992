@@ -153,3 +153,12 @@ sudo nano /etc/fstab
 LABEL=移动硬盘名称 none ntfs rw,auto,nobrowse
 然后ctrl + o，回车，ctrl + x 回车，保存并退出
 ```
+
+## 7. 使用 gnu-sed 代替 mac 版的 sed
+
+```shell
+brew install gnu-sed
+brew install grep
+echo 'export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"' >> ~/.zshrc
+```

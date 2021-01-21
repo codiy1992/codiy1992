@@ -9,16 +9,17 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # zsh config
-prompt_context() { 
-    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then 
-        prompt_segment black default "%(!.%{%F{yellow}%}.)$USER" 
-    fi 
-} 
+prompt_context() {
+    if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+        prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+    fi
+}
 
-# multitail
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-
+# alias
 alias ll='ls -al'
+alias sed='gsed'
+alias grep='ggrep'
+
 alias codiy='_func() { read -s -p "Enter Vault Password: " VAULT_PASSWORD; echo $VAULT_PASSWORD > ~/.vault_password; vim ~/Assets/; rm -fr ~/.vault_password; echo "\n"; cd ~/Assets; git status; }; _func;'
 alias repo='_func() {cd ~/Repos/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
 alias rc='vim ~/.zshrc.osx; source ~/.zshrc.osx'
@@ -29,6 +30,22 @@ alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 alias !='_func() { gvim ~/Works/wn-devops/work/"$1"; }; _func'
 alias kibana='ssh deploy -N -L 9200:vpc-habibi-log-prjvsu6qosfw7kpr5vpkako7vy.eu-central-1.es.amazonaws.com:443 &'
 
+# reverse
+alias tcp='lsof -i -n -P | grep TCP'
+# dns.qry.name contains "qq.com" 
+alias ws.get='_func () {
+    echo "dns.qry.name contains \"$1\" || ip.addr == "`dig "$1" +short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
+}; _func'
+
+alias ws.weixin='
+echo "dns.qry.name contains \"qq.com\" || dns.qry.name contains \"weixin\" || dns.qry.name contains \"tencent\" || dns.qry.name contains \"wechat\" || ip.addr == "`
+dig \
+dns.weixin.qq.com \
+minorshort.weixin.qq.com \
+safebrowsing.urlsec.qq.com \
++short | grep -oP '\''((\d)+.){3}\d+'\''| sort | sed '\'':a;N;s/\n/ || ip.addr == /;t a;'\''`
+'
+
 # ansible
 alias play='ansible-playbook'
 alias vault='ansible-vault'
@@ -38,6 +55,7 @@ alias rmkh='_func() { sed -i "" "$1"d  /Users/codiy/.ssh/known_hosts;}; _func'
 export PATH=/Users/codiy/Works/wn-devops/work/habibi/executor/bin:$PATH
 
 # docker
+alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'
 alias docker.rm.all='docker rm $(docker ps -a -q)'
 alias docker.stop.all='docker stop $(docker ps -a -q)'
 alias docker.rmi.dangling='docker rmi $(docker images -q -f dangling=true)'
@@ -67,11 +85,11 @@ alias fk.logs.api='_func() {
     multitail -c -l "ssh fk.logs tail -f /data/${DATE}/api/$1-${DATE}.log"
 }; _func'
 alias fk.logs.act='_func() {
-    DATE=$(date +%Y-%m-%d); 
+    DATE=$(date +%Y-%m-%d);
     multitail -c -l "ssh fk.logs tail -f /data/${DATE}/activity/logs/$1-${DATE}.log"
 }; _func'
 alias fk.logs.nginx='_func() {
-    DATE=$(date +%Y-%m-%d); 
+    DATE=$(date +%Y-%m-%d);
     multitail -c -l "ssh fk.logs tail -f /data/${DATE}/$1/logs/access.log"
 }; _func'
 # ---------------------
