@@ -3,11 +3,13 @@ title: 我的Mac装机步骤
 date: 2020-03-09 14:07:18
 ---
 
-## 1. 安装基础软件
+## 1. 安装基础软件和设定
 
-- 安装[homebrew](https://brew.sh/)
+- 安装 [iterm2](https://iterm2.com/)
+- 安装 [homebrew](https://brew.sh/)
 - 安装输入法
 - 设置键盘映射 `System Preferences > Keyboard > Modifier Keys... `
+- 设置滚轮 `System Preferences > Trackpad > Scroll & Zoom > Scroll direction: Natural`
 
 ## 2. 安装0h-my-zsh
 
@@ -34,7 +36,9 @@ date: 2020-03-09 14:07:18
 
     > Perferences—->Profiles—->Colors—->Color Presets 选择 Solarized Dark
     >
-    > Perferences—->Profiles—->Text-->Font 选择任意 Powerline 结尾的字体
+    > Perferences—->Profiles—->Text-->Font 选择任意 Powerline 字体
+    >
+    > Perferences-->Profiles-->Window-->Transparency
 
 - 2.4 安装zsh插件
 
@@ -50,16 +54,6 @@ date: 2020-03-09 14:07:18
     ZSH_THEME="agnoster"
     ```
 
-- 2.6 设置.zshrc 不显示电脑名(在.zshrc导出该函数即可)
-
-    ```shell
-    prompt_context() {
-        if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-        fi
-    }
-    ```
-
 ## 3. 文件拷贝,配置ssh及vim
 
 ```shell
@@ -70,7 +64,7 @@ date: 2020-03-09 14:07:18
 ~/.ssh/各类ssh的rsa密钥
 
 # 安装macvim
-brew cask install macvim
+brew install --cask macvim
 # 从原Mac拷贝以下文件到新Mac
 ~/.vim/
 ~/.vimrc
@@ -99,54 +93,40 @@ brew cask install macvim
 
 ```shell
 # 必备
-brew cask install item2
-brew cask install alfred
+brew install --cask item2
+brew install --cask alfred
 
 # 浏览器
-brew cask install google-chrome
-brew cask install firefox
-brew cask install vivaldi
+brew install --cask google-chrome
 
 # 编辑器 or IDE
-brew cask install intellij-idea
+brew install --cask intellij-idea
 
 # 数据库工具
-brew cask install sequel-pro
-brew cask install robo-3t
+brew install --cask sequel-ace
 
 # Nodejs
-brew install node
 brew install yarn
 
 # Java
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
+brew install --cask adoptopenjdk8
 brew install maven
 brew install gradle
 
 # DevOps
 brew install aws-cdk
-brew cask install docker
+brew install --cask docker
 
 # Others
-brew cask install kindle
+brew install --cask kindle
 brew install svn
-brew cask install shadowsocksx-ng
-brew cask install postman
-
-# 内网穿透工具
-brew cask install ngrok
+brew install --cask shadowsocksx-ng
+brew install --cask postman
 
 ```
 
-## 5. vscode的设定
-
-```txt
-1. command + shift + p 输入 settings打开settings.json 拷贝出来
-2. command + p 输入 keybindings.json 拷贝出来
-```
-
-## 6. 开启mac支持windows的ntfs格式移动硬盘
+## 5. 开启mac支持windows的ntfs格式移动硬盘
 
 ```shell
 sudo nano /etc/fstab
@@ -154,7 +134,7 @@ LABEL=移动硬盘名称 none ntfs rw,auto,nobrowse
 然后ctrl + o，回车，ctrl + x 回车，保存并退出
 ```
 
-## 7. 使用 gnu-sed 代替 mac 版的 sed
+## 6. 使用 gnu-sed 代替 mac 版的 sed
 
 ```shell
 brew install gnu-sed
