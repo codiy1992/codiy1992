@@ -29,6 +29,13 @@ alias ~='_func() { cd ~/Works/wn-devops/work/"$1"; }; _func'
 alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 alias !='_func() { gvim ~/Works/wn-devops/work/"$1"; }; _func'
 alias kibana='ssh deploy -N -L 9200:vpc-habibi-log-prjvsu6qosfw7kpr5vpkako7vy.eu-central-1.es.amazonaws.com:443 &'
+alias todo='cd ~/Repos/todos;make;popd'
+
+# proxy
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+
+# python3
+export PATH="/usr/local/Cellar/python@3.9/3.9.1_6/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
 
 # reverse
 alias tcp='lsof -i -n -P | grep TCP'
