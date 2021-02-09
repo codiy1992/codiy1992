@@ -19,6 +19,11 @@ alias todo='cd ~/Repos/todos;make;popd'
 
 # python3
 export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.9/libexec/bin:$PATH"
+
+# alias - eblibs
+alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checout .; git pull; popd;'
+alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
+
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'
 alias chrome='google-chrome &> /dev/null &'
@@ -45,7 +50,7 @@ alias @='_func() { /usr/bin/code ~/.workspaces/"$1".code-workspace; }; _func'
 # proxy
 export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
-#export
+export all_proxy=socks5://127.0.0.1:7890
 
 # for VcXsrv
 export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
