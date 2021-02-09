@@ -15,6 +15,10 @@ alias pw='tr -dc A-Za-z0-9 </dev/urandom | head -c 16 ; echo '
 alias pw2='tr -dc '\''A-Za-z0-9!"#$%&'\'''\\''\'''\''()*+,-./:;<=>?@[\]^_`{|}~'\'' </dev/urandom | head -c 13  ; echo'
 alias repo='_func() {cd ~/Repos/mp-backend/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
 
+# alias - eblibs
+alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checout .; git pull; popd;'
+alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
+
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'
 alias chrome='google-chrome &'
