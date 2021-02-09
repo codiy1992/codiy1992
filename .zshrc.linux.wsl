@@ -14,10 +14,14 @@ alias rc='vim ~/.zshrc.linux.wsl; source ~/.zshrc.linux.wsl'
 alias pw='tr -dc A-Za-z0-9 </dev/urandom | head -c 16 ; echo '
 alias pw2='tr -dc '\''A-Za-z0-9!"#$%&'\'''\\''\'''\''()*+,-./:;<=>?@[\]^_`{|}~'\'' </dev/urandom | head -c 13  ; echo'
 alias repo='_func() {cd ~/Repos/mp-backend/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
+alias drm='_func() {python3 /home/codiy/Repos/drm_remover/drm.py -f "$1" -s G090G10582720PB4; mv ./*.azw3 /mnt/c/Users/codiy/Downloads/;}; _func'
+alias todo='cd ~/Repos/todos;make;popd'
 
+# python3
+export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.9/libexec/bin:$PATH"
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'
-alias chrome='google-chrome &'
+alias chrome='google-chrome &> /dev/null &'
 
 # homebrew
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -41,6 +45,7 @@ alias @='_func() { /usr/bin/code ~/.workspaces/"$1".code-workspace; }; _func'
 # proxy
 export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
+#export
 
 # for VcXsrv
 export DISPLAY=$(ip route|awk '/^default/{print $3}'):0
@@ -52,7 +57,7 @@ export XMODIFIERS=@im=fcitx
 export DefaultIMModule=fcitx
 FCITX_PROCESS_COUNT=`ps -ef | grep fcitx | grep -v "grep" | wc -l`
 if [ ${FCITX_PROCESS_COUNT} -lt 1 ]; then
-  fcitx-autostart &>/dev/null
+  fcitx-autostart &>/dev/null &
 fi
 
 # run commands
