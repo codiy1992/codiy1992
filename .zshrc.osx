@@ -19,8 +19,8 @@ alias rc='vim ~/.zshrc.osx; source ~/.zshrc.osx'
 alias @='_func() { code ~/.workspaces/"$1".code-workspace; }; _func'
 
 # alias - eblibs
-alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd;'
-alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
+alias cali='yes !|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd;'
+alias eblibs='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes !|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
 
 # alias - work
 alias repo='_func() {cd ~/Repos/.docker; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'

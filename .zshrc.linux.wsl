@@ -21,8 +21,8 @@ alias todo='cd ~/Repos/todos;make;popd'
 export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.9/libexec/bin:$PATH"
 
 # alias - eblibs
-alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd;'
-alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
+alias cali='yes !|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd;'
+alias eblibs='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes !|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
 
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'
