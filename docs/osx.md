@@ -96,6 +96,14 @@ brew install --cask macvim
 brew install --cask item2
 brew install --cask alfred
 
+# gpg2
+brew insall gpg2
+brew install --cask gpg-suite
+# pinentry for gpg
+brew install pinentry-mac
+echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+killall gpg-agent
+
 # 浏览器
 brew install --cask google-chrome
 
