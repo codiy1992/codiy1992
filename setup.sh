@@ -8,7 +8,7 @@ function info() { if [ -z "$1" ]; then echo "params required"; exit; fi; echo -e
 
 # Step01: --------------- 检查个人私钥
 if [ ! -f ${HOME}/.ssh/id_rsa ]; then err '请确保个人私钥放置在 ~/.ssh/id_rsa' ;fi
-if [ `ls -al ${HOME}/.ssh/id_rsa | awk '{print $1}'` != "-r--------" ]; then err '请确保个人私钥权限为 0400' ;fi
+if [ `ls -al ${HOME}/.ssh/id_rsa | awk '{print $1}'` != "-rw-------" ]; then err '请确保个人私钥权限为 0600' ;fi
 
 # Step02: --------------- 安装基础软体
 if [ ${OS_TYPE} == "Darwin" ]; then
@@ -21,7 +21,7 @@ if [ ${OS_TYPE} == "Darwin" ]; then
 else
     echo 'Linux';
     DISTRO=$(lsb_release -i | cut -f 2-)
-    if [ ! ${DISTRO} -eq "Ubuntu" ]; then
+    if [ ! "${DISTRO}" == "Ubuntu" ]; then
         err '不适用于除 Ubuntu 外的 Linux 发行版'
     fi
 fi
