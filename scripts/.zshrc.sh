@@ -33,7 +33,7 @@ alias du='du -alh --max-depth=1 ./'
 alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checout .; git pull; popd;'
 alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
 alias todo='cd "${HOME}/Repos/todos";make;popd'
-alias repo='_func() {cd "${HOME}/Repos/mp-backend/.docker"; if [ -n "$1" ]; then make "$1"; else make; fi}; _func'
+alias repo='_func() {cd "${HOME}/Repos/mp-backend/.docker"; if [ -n "$1" ]; then make "$1"; else make; fi; popd}; _func'
 
 # 命令别名 - docker
 alias docker.clean='docker stop $(docker ps -a -q); docker rm $(docker ps -a -q); docker rmi $(docker images -q -f dangling=true);'

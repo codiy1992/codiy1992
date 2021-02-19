@@ -9,7 +9,7 @@ prompt_context() {
 function err() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;31m$1\033[0m"; exit;}
 function ok() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;32m$1\033[0m";}
 function warn() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;33m$1\033[0m";}
-function info() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;34m$1\033[0m";exit;}
+function info() { if [ -z "$1" ]; then echo "params can't be null"; exit; fi; echo -e "\033[49;34m$1\033[0m";}
 
 # 待办仓库的初始化及更新
 _func_todos() {
@@ -17,6 +17,6 @@ _func_todos() {
     if [ ! -d ${REPO_PATH_TODO} ] || [ "`ls -A ${REPO_PATH_TODO}`" = "" ]; then
         git clone git@github.com:codiy1992/todos.git ${REPO_PATH_TODO}
     else
-        cd ${REPO_PATH_TODO}; git pull > /dev/null; popd 2> /dev/null;
+        cd ${REPO_PATH_TODO}; git pull > /dev/null; popd > /dev/null 2>&1;
     fi
 }

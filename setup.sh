@@ -24,19 +24,17 @@ else
     if [ ! ${DISTRO} -eq "Ubuntu" ]; then
         err '不适用于除 Ubuntu 外的 Linux 发行版'
     fi
-    # 安装 zsh
-    which zsh >/dev/null 2>&1
-    if [ ! $? -eq 0 ]; then
-        sudo apt-get install zsh
-        chsh -s $(which zsh)
-    fi
 fi
-
+# 安装 zsh
+which zsh >/dev/null 2>&1
+if [ ! $? -eq 0 ]; then
+    sudo apt-get install zsh
+    chsh -s $(which zsh)
+fi
 # 安装 oh-my-zsh
 if [ ! -d ${HOME}/.oh-my-zsh ] || [ "`ls -A ${HOME}/.oh-my-zsh`" = "" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
 
 # Step03: --------------- 克隆自身仓库至本地
 mkdir -p ${HOME}/Repos
