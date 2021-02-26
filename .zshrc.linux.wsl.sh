@@ -7,7 +7,7 @@ export http_proxy=http://$(ip route|awk '/^default/{print $3}'):7890
 export all_proxy=socks5://$(ip route|awk '/^default/{print $3}'):7890
 
 # alias
-alias rc='vim ~/.zshrc.linux.wsl.sh; source ~/.zshrc.linux.wsl.sh'
+alias rc='vim ~/.zshrc.linux.wsl.sh; source ~/.zshrc'
 
 # apps
 alias idea='/home/codiy/Applications/idea/bin/idea.sh'
