@@ -8,7 +8,7 @@ date: 2021-02-27 09:16:52
 * 一款半开源的微信第三方管理平台, 部分扩展功能插件是收费的.
 * 项目地址:[https://github.com/geesondog/rhaphp](https://github.com/geesondog/rhaphp)
 
-## 存在的安全问题
+## 1.5.8版本存在的安全问题
 
 * 默认开启 info 级别日志, 日志可通过 http 请求直接下载, 下载路径 `/runtime/log/202102/27.log`, info 级别日志将会包含后台登陆账号的 cookie 信息. **真香!!!**
 * 存在**ssrf漏洞**路由 `mp/mp/addKeyword` POST 参数 `keyword=abc&type=image&reply_image=dict://redis:6379/flushall&image_staus_type=0`
