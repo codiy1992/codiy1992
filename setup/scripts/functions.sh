@@ -20,3 +20,31 @@ _func_todos() {
         cd ${REPO_PATH_TODO}; git pull > /dev/null; popd > /dev/null 2>&1;
     fi
 }
+
+# URL编码
+urlencode() {
+  local string="${1}"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:$pos:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER)
+  REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
+}
+
+# base64_encode
+en_base64() {
+    echo -n "${1}" |base64 |tr -d '\n';
+}
+
+keep() {
+    curl --upload-file "${1}" https://free.keep.sh
+}
