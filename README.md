@@ -1,5 +1,24 @@
-# 开发环境配置指引
+### Hi there 👋
 
-```
-curl https://raw.githubusercontent.com/codiy1992/setup/master/setup.sh | sudo bash
-```
+I'm Codiy (Kimfung Cheng)
+
+- 💬 Ask me about anything [here](https://github.com/codiy1992/codiy1992/issues)
+
+[![Github Status](https://github-readme-stats.vercel.app/api?username=codiy1992&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
+
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=codiy1992&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+<!--
+**codiy1992/codiy1992** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
