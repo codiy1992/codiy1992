@@ -1,4 +1,4 @@
-ROOT_PATH="${HOME}/Repos/setup"
+ROOT_PATH="${HOME}/Repos/codiy1992/setup"
 source ${ROOT_PATH}/scripts/.zshrc.sh
 
 # 命令行代理, 需打开防火墙(设置 > 更新和安全 > windows安全中心 > 防火墙和网络保护 > 允许应用通过防火墙 > 勾选代理软件)

@@ -9,7 +9,7 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 # 导入函数
-source ${HOME}/Repos/setup/scripts/functions.sh
+source ${ROOT_PATH}/scripts/functions.sh
 
 # 命令行代理
 export https_proxy=http://127.0.0.1:7890

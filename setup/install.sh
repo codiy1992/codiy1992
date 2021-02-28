@@ -39,22 +39,23 @@ fi
 # Step03: --------------- 克隆自身仓库至本地
 mkdir -p ${HOME}/Repos
 
-REPO_PATH="${HOME}/Repos/setup"
+REPO_PATH="${HOME}/Repos/codiy1992"
 
 # 克隆远程仓库到本地
 if [ ! -d ${REPO_PATH} ] || [ "`ls -A ${REPO_PATH}`" = "" ]; then
-    git clone https://github.com/codiy1992/setup.git ${REPO_PATH}
+    git clone https://github.com/codiy1992/codiy1992.git ${REPO_PATH}
 else
     cd ${REPO_PATH}; git pull > /dev/null; popd 2> /dev/null;
 fi
 
 # 建立软链接
-ln -sf ${PWD}/.gitconfig ~/.gitconfig
-ln -sf ${PWD}/.gitignore ~/.gitignore
-ln -sf ${PWD}/.gvimrc ~/.gvimrc
-ln -sf ${PWD}/.vimrc ~/.vimrc
-ln -sf ${PWD}/.zshrc.linux.wsl.sh ~/.zshrc.linux.wsl.sh
-ln -sf ${PWD}/.zshrc.osx.sh ~/.zshrc.osx.sh
+SCRIPT_PATH="${REPO_PATH}/setup"
+ln -sf ${SCRIPT_PATH}/.gitconfig ~/.gitconfig
+ln -sf ${SCRIPT_PATH}/.gitignore ~/.gitignore
+ln -sf ${SCRIPT_PATH}/.gvimrc ~/.gvimrc
+ln -sf ${SCRIPT_PATH}/.vimrc ~/.vimrc
+ln -sf ${SCRIPT_PATH}/.zshrc.linux.wsl.sh ~/.zshrc.linux.wsl.sh
+ln -sf ${SCRIPT_PATH}/.zshrc.osx.sh ~/.zshrc.osx.sh
 
 # Step04: --------------- 配置 oh-my-zsh
 sed -i 's/^ZSH_THEME="[^"]*"/ZSH_THEME="agnoster"/' ${HOME}/.zshrc

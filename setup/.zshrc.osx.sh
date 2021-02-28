@@ -1,4 +1,4 @@
-ROOT_PATH="${HOME}/Repos/setup"
+ROOT_PATH="${HOME}/Repos/codiy1992/setup"
 source ${ROOT_PATH}/scripts/.zshrc.sh
 
 # 可执行程序文件路径
