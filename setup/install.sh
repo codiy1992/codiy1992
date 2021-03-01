@@ -8,7 +8,8 @@ function info() { if [ -z "$1" ]; then echo "params required"; exit; fi; echo -e
 
 # Step01: --------------- 检查个人私钥
 if [ ! -f ${HOME}/.ssh/id_rsa ]; then err '请确保个人私钥放置在 ~/.ssh/id_rsa' ;fi
-if [ `ls -al ${HOME}/.ssh/id_rsa | awk '{print $1}'` != "-rw-------" ]; then err '请确保个人私钥权限为 0600' ;fi
+RSA_PERMISSION=`ls -al ${HOME}/.ssh/id_rsa | awk '{print $1}'`
+if [ ${RSA_PERMISSION} != "-rw-------" -a ${RSA_PERMISSION} != "-r--------" ]; then err '请确保个人私钥权限为 0600 或者 0400' ;fi
 
 # Step02: --------------- 安装基础软体
 if [ ${OS_TYPE} == "Darwin" ]; then
