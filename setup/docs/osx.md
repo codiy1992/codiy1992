@@ -10,6 +10,7 @@ date: 2020-03-09 14:07:18
 - 安装输入法
 - 设置键盘映射 `System Preferences > Keyboard > Modifier Keys... `
 - 设置滚轮 `System Preferences > Trackpad > Scroll & Zoom > Scroll direction: Natural`
+- 设置允许重复按键 `defaults write -g ApplePressAndHoldEnabled -bool false`, 需重启机器
 
 ## 2. 安装0h-my-zsh
 

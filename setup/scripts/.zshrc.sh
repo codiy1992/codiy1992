@@ -14,7 +14,7 @@ source ${ROOT_PATH}/scripts/functions.sh
 # 命令行代理
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7890
+export all_proxy=socks5://127.0.0.1:7891
 
 # JDK 版本
 # JDK_VERSION="xxx"
@@ -25,6 +25,7 @@ alias pd='popd'
 alias ll='ls -al'
 alias rmkh='_func() { sed -i "" "$1"d  ${HOME}/.ssh/known_hosts;}; _func'
 alias ascii2hex='_func(){echo "$1" | hexdump -vC |  awk '\''BEGIN {IFS="\t"} {$1=""; print }'\'' | awk '\''{sub(/\|.*/,"")}1'\'' | tr -d '\''\n'\''|sed '\''s/  / /g'\'' |sed '\''s/ /\\x/g'\''|rev|cut -c 3- |rev }; _func'
+alias ipinfo='_func(){curl "http://ip-api.com/line/$1?lang=zh-CN"}; _func'
 
 # 命令别名 - 系统管理
 alias tcp='lsof -i -n -P | grep TCP'
