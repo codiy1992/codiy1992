@@ -53,6 +53,17 @@ alias play='ansible-playbook'
 alias vault='ansible-vault'
 alias encrypt='ansible-vault encrypt '
 
+# 命令别名 - youtube-dl
+# --proxy "socks5://127.0.0.1:7891" \
+alias ydl='
+    youtube-dl \
+    --hls-prefer-ffmpeg \
+    --merge-output-format mp4 \
+    --external-downloader aria2c \
+    --external-downloader-args "-c -x 6 -k 1M --all-proxy=127.0.0.1:7890" \
+    -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio/best" \
+    -o "%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
+
 # 命令别名 - wireshark
 alias ws.get='
     _func () {
