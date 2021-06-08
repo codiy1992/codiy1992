@@ -23,14 +23,19 @@
 * [Highlight Search Results in the Browser](https://ankiweb.net/shared/info/225180905)
 * [Fastbar- with nightmode support](https://ankiweb.net/shared/info/46611790)
 * [Always On Top](https://ankiweb.net/shared/info/1760080335)
+* [Replay buttons on card](https://ankiweb.net/shared/info/498789867)
+* [CrowdAnki: JSON export&import. Edit history. Collaborate on deck creation.](https://ankiweb.net/shared/info/1788670778)
 
 ### Add-ons()
 
 * [Image Occlusion Enhanced for Anki 2.1 (alpha)](https://ankiweb.net/shared/info/1374772155)
 * [Word Query](https://ankiweb.net/shared/info/775418273)
+* [Searching, PDF Reading & Note-Taking in Add Dialog](https://ankiweb.net/shared/info/1781298089)
 
 ### Add-ons(Looks no bad)
-
+* [cloze overlapper](https://github.com/glutanimate/cloze-overlapper)
+* [Add Cards - Web Browser](https://ankiweb.net/shared/info/1783260740)
+* [Minimize to tray](https://ankiweb.net/shared/info/85158043)
 * [The KING of Button Add-ons](https://ankiweb.net/shared/info/374005964)
 * [(Legacy) ReMemorize™: Rescheduler with sibling and logging (v1.4.2)](https://ankiweb.net/shared/info/323586997)
 * [Watch Foreign Language Movies with Anki](https://ankiweb.net/shared/info/939347702)
@@ -43,3 +48,18 @@
 * [External Note Editor for the Browser](https://ankiweb.net/shared/info/1996266159)
 * [Migaku Retirement](https://ankiweb.net/shared/info/1666520655)
 * [Migaku Dictionary](https://ankiweb.net/shared/info/1655992655)
+
+### Templates (Note Type)
+
+* [Troyciv/anki-templates-superlist](https://github.com/Troyciv/anki-templates-superlist)
+* [Anki_Templates](https://github.com/bikenik/Anki_Templates)
+* [Anki-Azul-Template](https://github.com/TunkShif/Anki-Azul-Template)
+* [Anki-Card-Templates](https://github.com/Jfaler/Anki-Card-Templates)
+* [anki-awesome-select](https://github.com/git9527/anki-awesome-select)
+* [Z233/anki-template-shanbay](https://github.com/Z233/anki-template-shanbay)
+* [anki-purejs-media-random](https://github.com/faneca/anki-purejs-media-random)
+
+### Note Type vs Card Type
+
+* Note Type can used by many Cards
+* One Card associated with one Card Type
