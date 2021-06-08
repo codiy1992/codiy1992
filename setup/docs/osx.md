@@ -80,11 +80,12 @@ brew install --cask macvim
 # 其他有用的文件
 ~/.aws/
 ~/.gvimrc
+~/.config
 ~/.ssh/
 ~/.vim/
 ~/.vimrc
 ~/.zshrc
-~/.zshrc.my
+~/.zshrc.osx.sh
 ~/.workspaces
 ~/Works
 ~/Repos
@@ -96,6 +97,9 @@ brew install --cask macvim
 # 必备
 brew install --cask item2
 brew install --cask alfred
+brew install --cask docker
+brew install --cask clashx
+brew install --cask google-chrome
 
 # gpg2
 brew insall gpg2
@@ -104,12 +108,6 @@ brew install --cask gpg-suite
 brew install pinentry-mac
 echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
 killall gpg-agent
-
-# 浏览器
-brew install --cask google-chrome
-
-# 编辑器 or IDE
-brew install --cask intellij-idea
 
 # 数据库工具
 brew install --cask sequel-ace
@@ -133,6 +131,11 @@ brew install svn
 brew install --cask shadowsocksx-ng
 brew install --cask postman
 
+##
+brew install aria2
+brew install youtube-dl
+brew install ffmpeg
+brew install mitmproxy
 ```
 
 ## 5. 开启mac支持windows的ntfs格式移动硬盘
