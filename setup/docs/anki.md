@@ -4,7 +4,7 @@
 
 * [tianshanghong/awesome-anki](https://github.com/tianshanghong/awesome-anki)
 
-### Add-ons
+### Add-ons(required)
 
 * [Review Heatmap](https://github.com/glutanimate/review-heatmap/)
 * [Custom Background Image and Gear Icon](https://ankiweb.net/shared/info/1210908941)
@@ -25,14 +25,17 @@
 * [Always On Top](https://ankiweb.net/shared/info/1760080335)
 * [Replay buttons on card](https://ankiweb.net/shared/info/498789867)
 * [CrowdAnki: JSON export&import. Edit history. Collaborate on deck creation.](https://ankiweb.net/shared/info/1788670778)
-
+* [Collapsible Fields](https://ankiweb.net/shared/info/1896168623)
+* [Image Occlusion Enhanced for Anki 2.1 (alpha)](https://ankiweb.net/shared/info/1374772155)
+* [Customize Keyboard Shortcuts](https://ankiweb.net/shared/info/24411424)
+* [Enhance main window](https://ankiweb.net/shared/info/877182321)
 ### Add-ons()
 
-* [Image Occlusion Enhanced for Anki 2.1 (alpha)](https://ankiweb.net/shared/info/1374772155)
 * [Word Query](https://ankiweb.net/shared/info/775418273)
 * [Searching, PDF Reading & Note-Taking in Add Dialog](https://ankiweb.net/shared/info/1781298089)
 
 ### Add-ons(Looks no bad)
+* [Custom Styles (font color, background colour, classes)](https://ankiweb.net/shared/info/1899278645)
 * [cloze overlapper](https://github.com/glutanimate/cloze-overlapper)
 * [Add Cards - Web Browser](https://ankiweb.net/shared/info/1783260740)
 * [Minimize to tray](https://ankiweb.net/shared/info/85158043)
@@ -49,6 +52,11 @@
 * [Migaku Retirement](https://ankiweb.net/shared/info/1666520655)
 * [Migaku Dictionary](https://ankiweb.net/shared/info/1655992655)
 
+### Add-ons(Waiting for supported latest version)
+
+* [Frozen Fields](https://ankiweb.net/shared/info/516643804)
+*
+
 ### Templates (Note Type)
 
 * [Troyciv/anki-templates-superlist](https://github.com/Troyciv/anki-templates-superlist)
@@ -59,7 +67,14 @@
 * [Z233/anki-template-shanbay](https://github.com/Z233/anki-template-shanbay)
 * [anki-purejs-media-random](https://github.com/faneca/anki-purejs-media-random)
 
-### Note Type vs Card Type
+### Notes, Cards, Note Types, Card Types
 
-* Note Type can used by many Cards
-* One Card associated with one Card Type
+
+### Preference settings
+
+* In the "Scheduling" tab, uncheck the "Show next review time above answer buttons".
+
+### Deck's Option Group Settings
+* Create Option Group for your decks, such as "Sentence Cards", and "Vocabulary Cards", etc.
+* "Maximum reviews/day" option in the "Reviews" tab of the Deck Options Window to 9999, default is 200.
+* In the "Lapses" tab, Type 20% into the "New Interval" number input
