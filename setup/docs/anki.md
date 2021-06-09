@@ -29,6 +29,7 @@
 * [Image Occlusion Enhanced for Anki 2.1 (alpha)](https://ankiweb.net/shared/info/1374772155)
 * [Customize Keyboard Shortcuts](https://ankiweb.net/shared/info/24411424)
 * [Enhance main window](https://ankiweb.net/shared/info/877182321)
+* [Mini Format Pack](https://ankiweb.net/shared/info/295889520)
 ### Add-ons()
 
 * [Word Query](https://ankiweb.net/shared/info/775418273)
