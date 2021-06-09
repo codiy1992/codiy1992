@@ -30,6 +30,7 @@
 * [Customize Keyboard Shortcuts](https://ankiweb.net/shared/info/24411424)
 * [Enhance main window](https://ankiweb.net/shared/info/877182321)
 * [Mini Format Pack](https://ankiweb.net/shared/info/295889520)
+* [External Note Editor for the Browser](https://ankiweb.net/shared/info/1996266159)
 ### Add-ons()
 
 * [Word Query](https://ankiweb.net/shared/info/775418273)
@@ -49,7 +50,6 @@
 * [Batch Download Pictures From Google Images](https://ankiweb.net/shared/info/561924305)
 * [Remaining time (for Anki 2.1)](https://ankiweb.net/shared/info/1508357010)
 * [Syntax Highlighting for Code](https://ankiweb.net/shared/info/1463041493)
-* [External Note Editor for the Browser](https://ankiweb.net/shared/info/1996266159)
 * [Migaku Retirement](https://ankiweb.net/shared/info/1666520655)
 * [Migaku Dictionary](https://ankiweb.net/shared/info/1655992655)
 
