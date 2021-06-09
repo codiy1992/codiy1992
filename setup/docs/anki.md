@@ -17,7 +17,6 @@
 * [AnkiWebView Inspector](https://ankiweb.net/shared/info/31746032)
 * [Advanced Copy Fields](https://ankiweb.net/shared/info/1898445115)
 * [Progress Graphs and Stats for Learned and Matured Cards](https://ankiweb.net/shared/info/266436365)
-* [Browser: Table/Editor side-by-side (horizontal split)](https://ankiweb.net/shared/info/831846358)
 * [AwesomeTTS (Google Cloud Text-to-Speech & Microsoft Azure TTS) [unofficial]](https://ankiweb.net/shared/info/814349176)
 * [Advanced Browser](https://ankiweb.net/shared/info/874215009)
 * [Highlight Search Results in the Browser](https://ankiweb.net/shared/info/225180905)
@@ -52,7 +51,7 @@
 * [Syntax Highlighting for Code](https://ankiweb.net/shared/info/1463041493)
 * [Migaku Retirement](https://ankiweb.net/shared/info/1666520655)
 * [Migaku Dictionary](https://ankiweb.net/shared/info/1655992655)
-
+* [Browser: Table/Editor side-by-side (horizontal split)](https://ankiweb.net/shared/info/831846358)
 ### Add-ons(Waiting for supported latest version)
 
 * [Frozen Fields](https://ankiweb.net/shared/info/516643804)
