@@ -12,9 +12,10 @@ export LC_ALL="en_US.UTF-8"
 source ${ROOT_PATH}/scripts/functions.sh
 
 # 命令行代理
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7891
+# export https_proxy=http://127.0.0.1:7890
+# export http_proxy=http://127.0.0.1:7890
+# export all_proxy=socks5://127.0.0.1:7891
+# export no_proxy=127.0.0.1,0.0.0.0,localhost
 
 # JDK 版本
 # JDK_VERSION="xxx"
@@ -33,7 +34,7 @@ alias tcp='lsof -i -n -P | grep TCP'
 alias du='du -alh --max-depth=1 ./'
 
 # 命令别名 - 私人项目管理
-alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checout .; git pull; popd;'
+alias eb.pull='yes|rclone sync -i remote:/eblibs ~/Repos/rc-eblibs 2> /dev/null; cd ~/Repos/eblibs; git checkout .; git pull; popd > /dev/null;'
 alias eb.push='cd ~/Repos/eblibs; git add . && git commit -a --allow-empty-message -m "" && git push; yes|rclone sync -i ~/Repos/rc-eblibs remote:/eblibs 2> /dev/null';
 alias todo='cd "${HOME}/Repos/todos";make;popd'
 alias repo='_func() {cd "${HOME}/Repos/mp-backend/.docker"; if [ -n "$1" ]; then make "$1"; else make; fi; popd}; _func'
