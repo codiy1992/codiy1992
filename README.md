@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-I'm Codiy (Kimfung Cheng)
+I'm Codiy (Cody Zheng)
 
 - 💬 Ask me about anything [here](https://github.com/codiy1992/codiy1992/issues)
 
